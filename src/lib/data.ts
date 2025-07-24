@@ -15,6 +15,22 @@ export interface Perfume {
   };
 }
 
+export const fragranceCategories = [
+  'Floral',
+  'Woody',
+  'Oriental',
+  'Fresh',
+  'Spicy',
+  'Fruity',
+];
+
+export const designerBrands = ['Chanel', 'Dior', 'Hermès'];
+export const nicheBrands = [
+  'Creed',
+  'Maison Francis Kurkdjian',
+  "Etat Libre d'Orange",
+];
+
 export const perfumes: Perfume[] = [
   // Chanel
   {

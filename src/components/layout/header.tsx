@@ -20,24 +20,8 @@ import Link from 'next/link';
 import { useAuth } from '@/hooks/use-auth';
 import { auth } from '@/lib/firebase';
 import { signOut } from 'firebase/auth';
-import { perfumes } from '@/lib/data';
+import { fragranceCategories, designerBrands, nicheBrands } from '@/lib/data';
 import { useRouter } from 'next/navigation';
-
-const fragranceCategories = [
-  'Floral',
-  'Woody',
-  'Oriental',
-  'Fresh',
-  'Spicy',
-  'Fruity',
-];
-
-const designerBrands = ['Chanel', 'Dior', 'Hermès'];
-const nicheBrands = [
-  'Creed',
-  'Maison Francis Kurkdjian',
-  "Etat Libre d'Orange",
-];
 
 export default function Header() {
   const { user, loading } = useAuth();

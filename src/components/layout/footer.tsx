@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 
 export default function Footer() {
@@ -22,7 +23,7 @@ export default function Footer() {
               <Link href="#" className="hover:text-accent">
                 Best Sellers
               </Link>
-              <Link href="#" className="hover:text-accent">
+              <Link href="/brands" className="hover:text-accent">
                 Brands
               </Link>
               <Link href="#" className="hover:text-accent">
