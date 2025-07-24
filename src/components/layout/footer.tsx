@@ -34,13 +34,13 @@ export default function Footer() {
           <div>
             <h4 className="font-headline font-semibold">Support</h4>
             <nav className="mt-4 flex flex-col space-y-2 font-body text-sm">
-              <Link href="#" className="hover:text-accent">
+              <Link href="/contact" className="hover:text-accent">
                 Contact Us
               </Link>
               <Link href="#" className="hover:text-accent">
                 Shipping & Returns
               </Link>
-              <Link href="#" className="hover:text-accent">
+              <Link href="/faq" className="hover:text-accent">
                 FAQ
               </Link>
             </nav>
