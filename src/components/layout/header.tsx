@@ -42,7 +42,7 @@ export default function Header() {
   };
 
   const navLinks = [
-    { href: '#ai-finder', label: 'AI Finder' },
+    { href: '/#ai-finder', label: 'AI Finder' },
     { href: '#', label: 'Sale' },
   ];
 
@@ -179,10 +179,10 @@ export default function Header() {
                 </Link>
                 <nav className="flex flex-col space-y-4">
                   {/* Mobile nav needs to be updated as well if we want dropdowns */}
-                  <Link href="#browse" className="text-lg transition-colors hover:text-accent">
+                  <Link href="/fragrances" className="text-lg transition-colors hover:text-accent">
                     Fragrances
                   </Link>
-                  <Link href="#browse" className="text-lg transition-colors hover:text-accent">
+                  <Link href="/brands" className="text-lg transition-colors hover:text-accent">
                     Brands
                   </Link>
                   {navLinks.map((link) => (

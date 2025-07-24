@@ -7,6 +7,7 @@ export interface Perfume {
   price: string;
   imageUrl: string;
   description: string;
+  category: 'Floral' | 'Woody' | 'Oriental' | 'Fresh' | 'Spicy' | 'Fruity';
   notes: {
     top: string[];
     middle: string[];
@@ -24,6 +25,7 @@ export const perfumes: Perfume[] = [
     imageUrl: 'https://placehold.co/600x600.png',
     description:
       'A timeless, legendary fragrance. A floral bouquet that is both abstract and mysterious.',
+    category: 'Floral',
     notes: {
       top: ['Aldehydes', 'Ylang-Ylang', 'Neroli', 'Bergamot'],
       middle: ['Iris', 'Jasmine', 'Rose', 'Lily-of-the-Valley'],
@@ -39,6 +41,7 @@ export const perfumes: Perfume[] = [
     imageUrl: 'https://placehold.co/600x600.png',
     description:
       'An aromatic-woody fragrance with a captivating trail. A tribute to masculine freedom.',
+    category: 'Woody',
     notes: {
       top: ['Grapefruit', 'Lemon', 'Mint', 'Pink Pepper'],
       middle: ['Ginger', 'Nutmeg', 'Jasmine'],
@@ -54,6 +57,7 @@ export const perfumes: Perfume[] = [
     imageUrl: 'https://placehold.co/600x600.png',
     description:
       'A grand floral fragrance for women with a generous and well-balanced bouquet.',
+    category: 'Floral',
     notes: {
       top: ['Ylang-Ylang', 'Turkish Rose'],
       middle: ['Jasmine Sambac', 'Tuberose'],
@@ -69,6 +73,7 @@ export const perfumes: Perfume[] = [
     imageUrl: 'https://placehold.co/600x600.png',
     description:
       'A radical, fresh composition, dictated by a name that has the ring of a manifesto.',
+    category: 'Fresh',
     notes: {
       top: ['Calabrian Bergamot', 'Pepper'],
       middle: ['Sichuan Pepper', 'Lavender', 'Pink Pepper', 'Vetiver'],
@@ -84,6 +89,7 @@ export const perfumes: Perfume[] = [
     imageUrl: 'https://placehold.co/600x600.png',
     description:
       'A glam rock fragrance full of mystery and energy, for an addictive and vibrant femininity.',
+    category: 'Oriental',
     notes: {
       top: ['Pink Pepper', 'Orange Blossom', 'Pear'],
       middle: ['Coffee', 'Jasmine', 'Bitter Almond', 'Licorice'],
@@ -99,6 +105,7 @@ export const perfumes: Perfume[] = [
     imageUrl: 'https://placehold.co/600x600.png',
     description:
       'A bold and floral feminine fragrance. For a woman who lives by her own rules.',
+    category: 'Floral',
     notes: {
       top: ['Lavender', 'Mandarin Orange', 'Black Currant', 'Petitgrain'],
       middle: ['Lavender', 'Orange Blossom', 'Jasmine'],
@@ -107,17 +114,17 @@ export const perfumes: Perfume[] = [
   },
   {
     id: 7,
-    name: 'Acqua di Giò',
-    brand: 'Giorgio Armani',
-    collection: 'Acqua di Giò',
-    price: '$98.00',
+    name: 'Aventus',
+    brand: 'Creed',
+    collection: 'Royal Exclusives',
+    price: '$495.00',
     imageUrl: 'https://placehold.co/600x600.png',
-    description:
-      'The scent of freedom, full of wind and water. A perfect harmony of sweet and salty notes.',
+    description: 'A sophisticated blend for individuals who savor a life well-lived.',
+    category: 'Fruity',
     notes: {
-      top: ['Lime', 'Lemon', 'Bergamot', 'Jasmine', 'Orange'],
-      middle: ['Sea Notes', 'Jasmine', 'Calone', 'Peach'],
-      base: ['White Musk', 'Cedar', 'Oakmoss', 'Patchouli'],
+        top: ['Pineapple', 'Bergamot', 'Black Currant', 'Apple'],
+        middle: ['Birch', 'Patchouli', 'Moroccan Jasmine', 'Rose'],
+        base: ['Musk', 'Oak moss', 'Ambergris', 'Vanille'],
     },
   },
   {
@@ -128,6 +135,7 @@ export const perfumes: Perfume[] = [
     price: '$132.00',
     imageUrl: 'https://placehold.co/600x600.png',
     description: 'A fragrance that connects man to his origins, to the sources of his creative power.',
+    category: 'Woody',
     notes: {
       top: ['Orange', 'Grapefruit'],
       middle: ['Pepper', 'Pelargonium'],
@@ -142,6 +150,7 @@ export const perfumes: Perfume[] = [
     price: '$134.00',
     imageUrl: 'https://placehold.co/600x600.png',
     description: 'The scent of the Hermès girls, a daring fragrance woven with striking ginger and sensual tuberose.',
+    category: 'Spicy',
     notes: {
       top: ['Ginger', 'Bergamot', 'Bitter Orange'],
       middle: ['Tuberose', 'Jasmine', 'Orange Blossom'],
@@ -156,6 +165,7 @@ export const perfumes: Perfume[] = [
     price: '$325.00',
     imageUrl: 'https://placehold.co/600x600.png',
     description: 'An eau de parfum born from the encounter between Maison Francis Kurkdjian and Baccarat, as a celebration of the 250th anniversary of the iconic crystal house.',
+    category: 'Oriental',
     notes: {
       top: ['Jasmine', 'Saffron'],
       middle: ['Amberwood', 'Ambergris'],
@@ -170,6 +180,7 @@ export const perfumes: Perfume[] = [
     price: '$225.00',
     imageUrl: 'https://placehold.co/600x600.png',
     description: 'Two eaux de parfum, two distinct olfactory silhouettes, using the same ingredients to express their full potential.',
+    category: 'Oriental',
     notes: {
       top: ['Juniper Berries', 'Nutmeg'],
       middle: ['Coriander Seed'],
@@ -184,6 +195,7 @@ export const perfumes: Perfume[] = [
     price: '$159.00',
     imageUrl: 'https://placehold.co/600x600.png',
     description: 'A fragrance for the exceptional, the unconventional. A celebration of those who break the mold.',
+    category: 'Spicy',
     notes: {
       top: ['Grapefruit', 'Champagne', 'Cardamom'],
       middle: ['Curry', 'Jasmine', 'Black Pepper'],
@@ -198,6 +210,7 @@ export const perfumes: Perfume[] = [
     price: '$159.00',
     imageUrl: 'https://placehold.co/600x600.png',
     description: 'The most wanted fragrance from the end of the world. A perfume created from the unwanted, the discarded, the trash.',
+    category: 'Fruity',
     notes: {
       top: ['Apple Essence Upcycling', 'Bitter Orange', 'Green Tangerine'],
       middle: ['Rose Absolute', 'Iso E Super', 'Gariguette Strawberry'],
