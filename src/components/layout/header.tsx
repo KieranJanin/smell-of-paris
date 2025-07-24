@@ -31,7 +31,13 @@ const fragranceCategories = [
   'Spicy',
   'Fruity',
 ];
-const brands = [...new Set(perfumes.map((p) => p.brand))];
+
+const designerBrands = ['Chanel', 'Dior', 'Hermès'];
+const nicheBrands = [
+  'Creed',
+  'Maison Francis Kurkdjian',
+  "Etat Libre d'Orange",
+];
 
 export default function Header() {
   const { user, loading } = useAuth();
@@ -141,7 +147,17 @@ export default function Header() {
                 Brands <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                {brands.map((brand) => (
+                <DropdownMenuLabel>Designer</DropdownMenuLabel>
+                {designerBrands.map((brand) => (
+                  <DropdownMenuItem key={brand} asChild>
+                    <Link href={`/brands/${brand.toLowerCase().replace(/ /g, '-')}`}>
+                      {brand}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+                <DropdownMenuSeparator />
+                <DropdownMenuLabel>Niche</DropdownMenuLabel>
+                {nicheBrands.map((brand) => (
                   <DropdownMenuItem key={brand} asChild>
                     <Link href={`/brands/${brand.toLowerCase().replace(/ /g, '-')}`}>
                       {brand}
