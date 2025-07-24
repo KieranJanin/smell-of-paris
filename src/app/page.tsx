@@ -4,6 +4,12 @@ import FragranceCarousel from '@/components/fragrance-carousel';
 import FragranceFinder from '@/components/fragrance-finder';
 import { perfumes } from '@/lib/data';
 import { Separator } from '@/components/ui/separator';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Smell of Paris - Fine Fragrances & Perfumes',
+  description: 'Welcome to Smell of Paris. Discover your signature scent with our exclusive collection of fine designer and niche fragrances from around the world.',
+}
 
 export default function Home() {
   return (

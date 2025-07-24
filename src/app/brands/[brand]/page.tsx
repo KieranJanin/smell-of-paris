@@ -7,13 +7,17 @@ import Footer from '@/components/layout/footer';
 import FragranceCarousel from '@/components/fragrance-carousel';
 import { Separator } from '@/components/ui/separator';
 import { useMemo } from 'react';
+import type { Metadata } from 'next';
 
-// This function can still be used for static generation if needed, but the page is now dynamic client-side.
-// export async function generateStaticParams() {
-//   const brands = [...new Set(perfumes.map((p) => p.brand))];
-//   return brands.map((brand) => ({
-//     brand: brand.toLowerCase().replace(/ /g, '-'),
-//   }));
+// This is a client component, so we can't export metadata directly.
+// We'll manage the title dynamically in the component.
+
+// export async function generateMetadata({ params }: { params: { brand: string } }): Promise<Metadata> {
+//   const brandName = params.brand.replace(/-/g, ' ').split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+//   return {
+//     title: `${brandName} Perfumes`,
+//     description: `Explore the exquisite collection of fragrances from ${brandName}. Find your signature scent from their iconic lines and exclusive collections.`,
+//   };
 // }
 
 export default function BrandPage({ params }: { params: { brand: string } }) {
@@ -42,8 +46,11 @@ export default function BrandPage({ params }: { params: { brand: string } }) {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 
+    if (typeof document !== 'undefined') {
+      document.title = `${formattedBrandName} Perfumes | Smell of Paris`;
+    }
+
   if (brandPerfumes.length === 0) {
-    // Optional: Handle case where brand has no perfumes or brand is not found.
     return (
        <div className="flex min-h-screen flex-col bg-background">
         <Header />

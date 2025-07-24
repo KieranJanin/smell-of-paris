@@ -3,9 +3,13 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'Smell of Paris',
+  title: {
+    default: 'Smell of Paris - Discover Your Signature Scent',
+    template: '%s | Smell of Paris',
+  },
   description:
-    'Discover your signature scent with our exclusive collection of fine fragrances.',
+    'Discover your signature scent with our exclusive collection of fine fragrances. Explore designer and niche perfumes from around the world.',
+  keywords: ['perfume', 'fragrance', 'cologne', 'niche perfume', 'designer fragrance', 'Smell of Paris'],
 };
 
 export default function RootLayout({

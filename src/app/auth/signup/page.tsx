@@ -28,6 +28,10 @@ export default function SignUpPage() {
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  if (typeof document !== 'undefined') {
+    document.title = 'Sign Up | Smell of Paris';
+  }
+
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);

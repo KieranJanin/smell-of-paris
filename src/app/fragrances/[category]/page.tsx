@@ -8,12 +8,15 @@ import FragranceCarousel from '@/components/fragrance-carousel';
 import { Separator } from '@/components/ui/separator';
 import { useMemo } from 'react';
 
-// This page is now client-side rendered to use hooks
-// export async function generateStaticParams() {
-//   const categories = [...new Set(perfumes.map((p) => p.category))];
-//   return categories.map((category) => ({
-//     category: category.toLowerCase(),
-//   }));
+// This is a client component, so we can't export metadata directly.
+// We'll manage the title dynamically in the component.
+
+// export async function generateMetadata({ params }: { params: { category: string } }): Promise<Metadata> {
+//   const categoryName = params.category.charAt(0).toUpperCase() + params.category.slice(1);
+//   return {
+//     title: `${categoryName} Fragrances`,
+//     description: `Discover the best ${categoryName.toLowerCase()} fragrances. Browse our collection of perfumes from top designer and niche brands.`,
+//   };
 // }
 
 export default function CategoryPage({ params }: { params: { category: string } }) {
@@ -39,6 +42,10 @@ export default function CategoryPage({ params }: { params: { category: string } 
 
   const formattedCategoryName =
     categoryName.charAt(0).toUpperCase() + categoryName.slice(1);
+
+  if (typeof document !== 'undefined') {
+    document.title = `${formattedCategoryName} Fragrances | Smell of Paris`;
+  }
 
   if (categoryPerfumes.length === 0) {
      return (

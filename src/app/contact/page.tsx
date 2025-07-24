@@ -17,10 +17,21 @@ import Footer from '@/components/layout/footer';
 import Header from '@/components/layout/header';
 import { Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import type { Metadata } from 'next';
+
+// export const metadata: Metadata = {
+//   title: 'Contact Us',
+//   description: 'Have a question or feedback? Contact the Smell of Paris team. We are here to help you with your fragrance journey.',
+// };
+// Cannot be used in a client component. We will set it dynamically.
 
 export default function ContactPage() {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+
+  if (typeof document !== 'undefined') {
+    document.title = 'Contact Us | Smell of Paris';
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,6 +47,7 @@ export default function ContactPage() {
     });
 
     // Here you would typically handle the form submission, e.g., send an email or save to a database.
+    (e.target as HTMLFormElement).reset();
   };
 
   return (

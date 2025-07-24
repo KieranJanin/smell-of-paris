@@ -208,7 +208,7 @@ export default function FragranceCarousel({
                 <CardHeader className="p-0">
                   <Image
                     src={fragrance.imageUrl}
-                    alt={fragrance.name}
+                    alt={`Perfume bottle for ${fragrance.name} by ${fragrance.brand}`}
                     width={300}
                     height={300}
                     className={cn('w-full object-cover', d.imageHeight)}

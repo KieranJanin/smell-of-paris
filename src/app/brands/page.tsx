@@ -10,6 +10,12 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Perfume Brands - Designer & Niche',
+  description: 'Explore our curated selection of the world\'s finest designer and niche fragrance brands. Shop from Chanel, Dior, Creed, and more.',
+};
 
 export default function AllBrandsPage() {
   return (
@@ -37,6 +43,7 @@ export default function AllBrandsPage() {
                 <Link
                   href={`/brands/${brand.toLowerCase().replace(/ /g, '-')}`}
                   key={brand}
+                  aria-label={`View perfumes from ${brand}`}
                 >
                   <Card className="h-full transform-gpu transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl">
                     <CardHeader className="text-center">
@@ -65,6 +72,7 @@ export default function AllBrandsPage() {
                 <Link
                   href={`/brands/${brand.toLowerCase().replace(/ /g, '-')}`}
                   key={brand}
+                  aria-label={`View perfumes from ${brand}`}
                 >
                    <Card className="h-full transform-gpu transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl">
                     <CardHeader className="text-center">

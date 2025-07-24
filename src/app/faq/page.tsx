@@ -7,6 +7,13 @@ import {
 } from '@/components/ui/accordion';
 import Footer from '@/components/layout/footer';
 import Header from '@/components/layout/header';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Frequently Asked Questions (FAQ)',
+  description: 'Find answers to common questions about fragrance notes, perfume types, shipping, returns, and more at Smell of Paris.',
+};
+
 
 const faqs = [
   {
