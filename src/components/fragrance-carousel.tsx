@@ -4,7 +4,7 @@
 import type { Perfume } from '@/lib/data';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -25,12 +25,16 @@ export default function FragranceCarousel({
   size = 'md',
 }: FragranceCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
-  
+  const dragRef = useRef({
+    startX: 0,
+    isDragging: false,
+  });
+
   // Prevent crash if fragrances is empty or not an array
   if (!fragrances || fragrances.length === 0) {
     return null;
   }
-  
+
   const numItems = fragrances.length;
 
   const handlePrev = () => {
@@ -40,7 +44,34 @@ export default function FragranceCarousel({
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % numItems);
   };
-  
+
+  const handleDragStart = (e: React.MouseEvent | React.TouchEvent) => {
+    dragRef.current.isDragging = true;
+    dragRef.current.startX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+    (e.currentTarget as HTMLElement).style.cursor = 'grabbing';
+  };
+
+  const handleDragEnd = (e: React.MouseEvent | React.TouchEvent) => {
+    if (!dragRef.current.isDragging) return;
+    dragRef.current.isDragging = false;
+    (e.currentTarget as HTMLElement).style.cursor = 'grab';
+
+    const endX = 'changedTouches' in e ? e.changedTouches[0].clientX : e.clientX;
+    const diff = dragRef.current.startX - endX;
+    const threshold = 50; // Min drag distance
+
+    if (diff > threshold) {
+      handleNext();
+    } else if (diff < -threshold) {
+      handlePrev();
+    }
+  };
+
+  const handleDragMove = (e: React.MouseEvent | React.TouchEvent) => {
+    if (!dragRef.current.isDragging) return;
+    e.preventDefault(); // Prevent text selection/page scroll
+  };
+
   const dimensions = {
     sm: {
       containerHeight: 'h-[450px]',
@@ -58,7 +89,7 @@ export default function FragranceCarousel({
       xFar: '80%',
       yRotateSide: '35deg',
       yRotateFar: '45deg',
-      cardMl: '-ml-[125px]'
+      cardMl: '-ml-[125px]',
     },
     md: {
       containerHeight: 'h-[550px]',
@@ -76,14 +107,19 @@ export default function FragranceCarousel({
       xFar: '90%',
       yRotateSide: '35deg',
       yRotateFar: '45deg',
-      cardMl: '-ml-[150px]'
+      cardMl: '-ml-[150px]',
     },
   };
 
   const d = dimensions[size];
 
   return (
-    <div className={cn("relative flex w-full items-center justify-center", d.containerHeight)}>
+    <div
+      className={cn(
+        'relative flex w-full items-center justify-center',
+        d.containerHeight
+      )}
+    >
       <div
         className="relative"
         style={{
@@ -93,15 +129,26 @@ export default function FragranceCarousel({
           perspective: d.perspective,
           transformStyle: 'preserve-3d',
         }}
+        onMouseDown={handleDragStart}
+        onTouchStart={handleDragStart}
+        onMouseMove={handleDragMove}
+        onTouchMove={handleDragMove}
+        onMouseUp={handleDragEnd}
+        onTouchEnd={handleDragEnd}
+        onMouseLeave={handleDragEnd}
       >
         {fragrances.map((fragrance, i) => {
           if (!fragrance) return null;
           const offset = (i - activeIndex + numItems) % numItems;
           const isCenter = offset === 0;
-          
+
           // Only render a few cards for performance
           const maxVisible = 5;
-          if (numItems > maxVisible && offset > Math.floor(maxVisible / 2) && offset < numItems - Math.floor(maxVisible / 2)) {
+          if (
+            numItems > maxVisible &&
+            offset > Math.floor(maxVisible / 2) &&
+            offset < numItems - Math.floor(maxVisible / 2)
+          ) {
             return null;
           }
 
@@ -110,7 +157,8 @@ export default function FragranceCarousel({
           const isFarLeft = offset === numItems - 2;
           const isFarRight = offset === 2;
 
-          let transform = 'translateX(0) translateZ(-800px) scale(0.4) rotateY(0)';
+          let transform =
+            'translateX(0) translateZ(-800px) scale(0.4) rotateY(0)';
           let opacity = 0;
           let zIndex = 1;
 
@@ -119,46 +167,53 @@ export default function FragranceCarousel({
             opacity = 1;
             zIndex = 10;
           } else if (isLeft) {
-            transform =
-              `translateX(-${d.xSide}) translateZ(${d.zSide}) rotateY(${d.yRotateSide}) scale(${d.sideScale})`;
+            transform = `translateX(-${d.xSide}) translateZ(${d.zSide}) rotateY(${d.yRotateSide}) scale(${d.sideScale})`;
             opacity = 1;
             zIndex = 5;
           } else if (isRight) {
-            transform =
-              `translateX(${d.xSide}) translateZ(${d.zSide}) rotateY(-${d.yRotateSide}) scale(${d.sideScale})`;
+            transform = `translateX(${d.xSide}) translateZ(${d.zSide}) rotateY(-${d.yRotateSide}) scale(${d.sideScale})`;
             opacity = 1;
             zIndex = 5;
           } else if (isFarLeft) {
-            transform =
-              `translateX(-${d.xFar}) translateZ(${d.zFar}) rotateY(${d.yRotateFar}) scale(${d.farScale})`;
+            transform = `translateX(-${d.xFar}) translateZ(${d.zFar}) rotateY(${d.yRotateFar}) scale(${d.farScale})`;
             opacity = 0.5;
             zIndex = 2;
           } else if (isFarRight) {
-            transform =
-              `translateX(${d.xFar}) translateZ(${d.zFar}) rotateY(-${d.yRotateFar}) scale(${d.farScale})`;
+            transform = `translateX(${d.xFar}) translateZ(${d.zFar}) rotateY(-${d.yRotateFar}) scale(${d.farScale})`;
             opacity = 0.5;
             zIndex = 2;
           }
-          
+
           return (
             <div
               key={fragrance.id}
-              className={cn("absolute left-1/2 top-0 transition-all duration-500 ease-in-out", d.cardMl, d.cardWidth)}
+              className={cn(
+                'absolute left-1/2 top-0 transition-all duration-500 ease-in-out',
+                d.cardMl,
+                d.cardWidth,
+                { 'cursor-grab': !dragRef.current.isDragging, 'cursor-grabbing': dragRef.current.isDragging }
+              )}
               style={{
                 transform,
                 opacity,
                 zIndex,
               }}
             >
-              <Card className={cn("w-full overflow-hidden bg-card shadow-2xl", d.cardHeight)}>
+              <Card
+                className={cn(
+                  'pointer-events-none w-full select-none overflow-hidden bg-card shadow-2xl',
+                  d.cardHeight
+                )}
+              >
                 <CardHeader className="p-0">
                   <Image
                     src={fragrance.imageUrl}
                     alt={fragrance.name}
                     width={300}
                     height={300}
-                    className={cn("w-full object-cover", d.imageHeight)}
+                    className={cn('w-full object-cover', d.imageHeight)}
                     data-ai-hint="perfume bottle"
+                    draggable="false"
                   />
                 </CardHeader>
                 <CardContent className="p-4 text-center">
@@ -178,26 +233,28 @@ export default function FragranceCarousel({
           );
         })}
       </div>
-      {numItems > 1 && <>
-        <Button
-          variant="outline"
-          size="icon"
-          className="absolute left-0 top-1/2 z-20 -translate-y-1/2 rounded-full"
-          onClick={handlePrev}
-          aria-label="Previous fragrance"
-        >
-          <ChevronLeft className="h-4 w-4" />
-        </Button>
-        <Button
-          variant="outline"
-          size="icon"
-          className="absolute right-0 top-1/2 z-20 -translate-y-1/2 rounded-full"
-          onClick={handleNext}
-          aria-label="Next fragrance"
-        >
-          <ChevronRight className="h-4 w-4" />
-        </Button>
-      </>}
+      {numItems > 1 && (
+        <>
+          <Button
+            variant="outline"
+            size="icon"
+            className="absolute left-0 top-1/2 z-20 -translate-y-1/2 rounded-full"
+            onClick={handlePrev}
+            aria-label="Previous fragrance"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </Button>
+          <Button
+            variant="outline"
+            size="icon"
+            className="absolute right-0 top-1/2 z-20 -translate-y-1/2 rounded-full"
+            onClick={handleNext}
+            aria-label="Next fragrance"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </Button>
+        </>
+      )}
     </div>
   );
 }
