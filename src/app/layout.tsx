@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'Parfum Élégance',
+  title: 'Smell of Paris',
   description:
     'Discover your signature scent with our exclusive collection of fine fragrances.',
 };

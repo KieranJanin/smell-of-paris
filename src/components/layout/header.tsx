@@ -118,7 +118,7 @@ export default function Header() {
         <div className="mr-4 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <span className="font-headline text-lg font-bold text-primary">
-              Parfum Élégance
+              Smell of Paris
             </span>
           </Link>
           <nav className="flex items-center space-x-6 font-body text-sm font-medium">
@@ -174,7 +174,7 @@ export default function Header() {
               <div className="p-4">
                 <Link href="/" className="mb-8 flex items-center space-x-2">
                   <span className="font-headline text-lg font-bold text-primary">
-                    Parfum Élégance
+                    Smell of Paris
                   </span>
                 </Link>
                 <nav className="flex flex-col space-y-4">
@@ -203,7 +203,7 @@ export default function Header() {
         <div className="flex flex-1 items-center justify-center md:hidden">
           <Link href="/" className="flex items-center space-x-2">
               <span className="font-headline text-lg font-bold text-primary">
-                Parfum Élégance
+                Smell of Paris
               </span>
             </Link>
         </div>

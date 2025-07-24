@@ -13,7 +13,7 @@ export default function Home() {
         <section className="py-16 text-center md:py-24">
           <div className="container mx-auto px-4">
             <h1 className="font-headline text-4xl font-bold tracking-tight text-primary md:text-6xl">
-              Parfum Élégance
+              Smell of Paris
             </h1>
             <p className="mx-auto mt-4 max-w-3xl font-body text-lg text-foreground md:text-xl">
               Discover your signature scent with our exclusive collection of fine

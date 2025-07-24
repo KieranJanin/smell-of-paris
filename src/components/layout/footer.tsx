@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
           <div>
             <h3 className="font-headline text-lg font-semibold text-primary">
-              Parfum Élégance
+              Smell of Paris
             </h3>
             <p className="mt-2 font-body text-sm">
               Exquisite fragrances for the discerning nose.
@@ -73,7 +73,7 @@ export default function Footer() {
         </div>
         <div className="mt-8 border-t pt-6 text-center font-body text-sm text-muted-foreground">
           <p>
-            &copy; {new Date().getFullYear()} Parfum Élégance. All rights
+            &copy; {new Date().getFullYear()} Smell of Paris. All rights
             reserved.
           </p>
         </div>

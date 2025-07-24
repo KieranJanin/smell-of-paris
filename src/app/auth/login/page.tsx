@@ -52,7 +52,7 @@ export default function LoginPage() {
             Welcome Back
           </CardTitle>
           <CardDescription>
-            Sign in to your Parfum Élégance account.
+            Sign in to your Smell of Paris account.
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSignIn}>

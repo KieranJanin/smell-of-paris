@@ -60,7 +60,7 @@ export default function SignUpPage() {
             Create an Account
           </CardTitle>
           <CardDescription>
-            Join Parfum Élégance to save your favorite scents.
+            Join Smell of Paris to save your favorite scents.
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSignUp}>
