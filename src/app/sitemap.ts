@@ -1,3 +1,4 @@
+
 import { MetadataRoute } from 'next';
 import { perfumes, fragranceCategories, designerBrands, nicheBrands } from '@/lib/data';
 
@@ -29,8 +30,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
   }));
   
-  // Note: We are not adding individual perfume pages to the sitemap for now
-  // to keep it concise, but this could be an future addition.
+  // Dynamic perfume pages
+  const perfumeRoutes = perfumes.map((perfume) => ({
+    url: `${baseUrl}/perfumes/${perfume.id}`,
+    lastModified: new Date(),
+  }));
 
-  return [...staticRoutes, ...brandRoutes, ...categoryRoutes];
+  return [...staticRoutes, ...brandRoutes, ...categoryRoutes, ...perfumeRoutes];
 }

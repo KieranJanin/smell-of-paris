@@ -4,6 +4,7 @@
 import type { Perfume } from '@/lib/data';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import {
@@ -184,25 +185,12 @@ export default function FragranceCarousel({
             zIndex = 2;
           }
 
-          return (
-            <div
-              key={fragrance.id}
-              className={cn(
-                'absolute left-1/2 top-0 transition-all duration-500 ease-in-out',
-                d.cardMl,
-                d.cardWidth,
-                { 'cursor-grab': !dragRef.current.isDragging, 'cursor-grabbing': dragRef.current.isDragging }
-              )}
-              style={{
-                transform,
-                opacity,
-                zIndex,
-              }}
-            >
-              <Card
+          const cardContent = (
+             <Card
                 className={cn(
-                  'pointer-events-none w-full select-none overflow-hidden bg-card shadow-2xl',
-                  d.cardHeight
+                  'w-full select-none overflow-hidden bg-card shadow-2xl transition-shadow duration-300',
+                  d.cardHeight,
+                  { 'hover:shadow-primary/20': isCenter }
                 )}
               >
                 <CardHeader className="p-0">
@@ -229,6 +217,30 @@ export default function FragranceCarousel({
                   <p className="mt-4 font-bold text-lg">{fragrance.price}</p>
                 </CardContent>
               </Card>
+          )
+
+          return (
+            <div
+              key={fragrance.id}
+              className={cn(
+                'absolute left-1/2 top-0 transition-all duration-500 ease-in-out',
+                d.cardMl,
+                d.cardWidth,
+                { 'cursor-grab': !dragRef.current.isDragging, 'cursor-grabbing': dragRef.current.isDragging }
+              )}
+              style={{
+                transform,
+                opacity,
+                zIndex,
+              }}
+            >
+              {isCenter ? (
+                <Link href={`/perfumes/${fragrance.id}`} className="block" aria-label={`View details for ${fragrance.name}`}>
+                  {cardContent}
+                </Link>
+              ) : (
+                <div className="pointer-events-none">{cardContent}</div>
+              )}
             </div>
           );
         })}
