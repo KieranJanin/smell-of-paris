@@ -1,3 +1,4 @@
+
 export interface Perfume {
   id: number;
   name: string;
@@ -117,6 +118,90 @@ export const perfumes: Perfume[] = [
       top: ['Lime', 'Lemon', 'Bergamot', 'Jasmine', 'Orange'],
       middle: ['Sea Notes', 'Jasmine', 'Calone', 'Peach'],
       base: ['White Musk', 'Cedar', 'Oakmoss', 'Patchouli'],
+    },
+  },
+  {
+    id: 8,
+    name: 'Terre d\'Hermès',
+    brand: 'Hermès',
+    collection: 'Les Classiques',
+    price: '$132.00',
+    imageUrl: 'https://placehold.co/600x600.png',
+    description: 'A fragrance that connects man to his origins, to the sources of his creative power.',
+    notes: {
+      top: ['Orange', 'Grapefruit'],
+      middle: ['Pepper', 'Pelargonium'],
+      base: ['Patchouli', 'Cedar', 'Vetiver', 'Benzoin'],
+    },
+  },
+  {
+    id: 9,
+    name: 'Twilly d\'Hermès',
+    brand: 'Hermès',
+    collection: 'Les Classiques',
+    price: '$134.00',
+    imageUrl: 'https://placehold.co/600x600.png',
+    description: 'The scent of the Hermès girls, a daring fragrance woven with striking ginger and sensual tuberose.',
+    notes: {
+      top: ['Ginger', 'Bergamot', 'Bitter Orange'],
+      middle: ['Tuberose', 'Jasmine', 'Orange Blossom'],
+      base: ['Sandalwood', 'Vanilla'],
+    },
+  },
+  {
+    id: 10,
+    name: 'Baccarat Rouge 540',
+    brand: 'Maison Francis Kurkdjian',
+    collection: 'Modern Masterpieces',
+    price: '$325.00',
+    imageUrl: 'https://placehold.co/600x600.png',
+    description: 'An eau de parfum born from the encounter between Maison Francis Kurkdjian and Baccarat, as a celebration of the 250th anniversary of the iconic crystal house.',
+    notes: {
+      top: ['Jasmine', 'Saffron'],
+      middle: ['Amberwood', 'Ambergris'],
+      base: ['Fir Resin', 'Cedar'],
+    },
+  },
+  {
+    id: 11,
+    name: 'Gentle Fluidity Gold',
+    brand: 'Maison Francis Kurkdjian',
+    collection: 'The Wardrobe',
+    price: '$225.00',
+    imageUrl: 'https://placehold.co/600x600.png',
+    description: 'Two eaux de parfum, two distinct olfactory silhouettes, using the same ingredients to express their full potential.',
+    notes: {
+      top: ['Juniper Berries', 'Nutmeg'],
+      middle: ['Coriander Seed'],
+      base: ['Musks', 'Ambery Woods', 'Vanilla'],
+    },
+  },
+  {
+    id: 12,
+    name: 'Remarkable People',
+    brand: 'Etat Libre d\'Orange',
+    collection: 'The Orange Extraordinaire',
+    price: '$159.00',
+    imageUrl: 'https://placehold.co/600x600.png',
+    description: 'A fragrance for the exceptional, the unconventional. A celebration of those who break the mold.',
+    notes: {
+      top: ['Grapefruit', 'Champagne', 'Cardamom'],
+      middle: ['Curry', 'Jasmine', 'Black Pepper'],
+      base: ['Labdanum', 'Sandalwood', 'Lorenox'],
+    },
+  },
+  {
+    id: 13,
+    name: 'I Am Trash - Les Fleurs du Déchet',
+    brand: 'Etat Libre d\'Orange',
+    collection: 'The Orange Extraordinaire',
+    price: '$159.00',
+    imageUrl: 'https://placehold.co/600x600.png',
+    description: 'The most wanted fragrance from the end of the world. A perfume created from the unwanted, the discarded, the trash.',
+    notes: {
+      top: ['Apple Essence Upcycling', 'Bitter Orange', 'Green Tangerine'],
+      middle: ['Rose Absolute', 'Iso E Super', 'Gariguette Strawberry'],
+      base: ['Cedarwood Atlas', 'Sandalwood', 'Akigalawood'],
     },
   },
 ];
