@@ -21,7 +21,7 @@ import type { Metadata } from 'next';
 // }
 
 export default function BrandPage({ params }: { params: { brand: string } }) {
-  const brandName = params.brand.replace(/-/g, ' ');
+  const brandName = decodeURIComponent(params.brand.replace(/-/g, ' '));
 
   const { brandPerfumes, perfumesByCollection } = useMemo(() => {
     const filtered = perfumes.filter(

@@ -20,7 +20,7 @@ import { useMemo } from 'react';
 // }
 
 export default function CategoryPage({ params }: { params: { category: string } }) {
-  const categoryName = params.category;
+  const categoryName = decodeURIComponent(params.category);
 
   const { categoryPerfumes, perfumesByBrand } = useMemo(() => {
     const filtered = perfumes.filter(
