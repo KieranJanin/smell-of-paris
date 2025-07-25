@@ -1,12 +1,22 @@
-# Firebase Studio
+# Smell of Paris
 
-This is a NextJS starter in Firebase Studio.
+Welcome to Smell of Paris, a sophisticated web application for discovering and purchasing fine fragrances. This project combines a modern frontend with a powerful AI-driven recommendation engine to provide a unique and personalized shopping experience.
 
-This website is a platform for discovering and exploring fragrances.
+## Tech Stack
 
-To get started, take a look at src/app/page.tsx.
+*   **Frontend:** [Next.js](https://nextjs.org/)
+*   **Backend & Database:** [Firebase](https://firebase.google.com/) (Authentication, Firestore, Storage)
+*   **AI:** [Genkit](https://firebase.google.com/docs/genkit)
+*   **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 
-To run the website locally, use the command:
-```bash
-firebase emulators:start
-```
+## Getting Started
+
+To get a local copy up and running, please refer to the [Development Guide](./docs/DEVELOPMENT.md).
+
+## Architecture
+
+For a detailed explanation of the project structure, see the [Architecture Overview](./docs/ARCHITECTURE.md).
+
+## Deployment
+
+Instructions for deploying the application can be found in the [Deployment Guide](./docs/DEPLOYMENT.md).
