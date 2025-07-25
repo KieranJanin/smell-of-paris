@@ -9,7 +9,7 @@ import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { ShoppingCart, Heart } from 'lucide-react';
+import { ShoppingCart, Heart, ExternalLink } from 'lucide-react';
 
 export default function PerfumePage({ params }: { params: { id: string } }) {
   const perfume = perfumes.find((p) => p.id.toString() === params.id);
@@ -64,27 +64,30 @@ export default function PerfumePage({ params }: { params: { id: string } }) {
                   <span className="sr-only">Add to Wishlist</span>
                 </Button>
               </div>
-            </div>
-          </div>
 
-          <Separator className="my-12 md:my-16" />
-
-          <div className="text-center">
-            <h3 className="font-headline text-3xl font-bold text-primary">
-              Fragrance Notes
-            </h3>
-            <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-3">
-              <div className="rounded-lg border bg-card p-6 shadow-sm">
-                <h4 className="font-headline text-xl font-semibold text-accent">Top Notes</h4>
-                <p className="mt-2 text-foreground/80">{perfume.notes.top.join(', ')}</p>
-              </div>
-              <div className="rounded-lg border bg-card p-6 shadow-sm">
-                <h4 className="font-headline text-xl font-semibold text-accent">Middle Notes</h4>
-                <p className="mt-2 text-foreground/80">{perfume.notes.middle.join(', ')}</p>
-              </div>
-              <div className="rounded-lg border bg-card p-6 shadow-sm">
-                <h4 className="font-headline text-xl font-semibold text-accent">Base Notes</h4>
-                <p className="mt-2 text-foreground/80">{perfume.notes.base.join(', ')}</p>
+              <div className="mt-8 flex items-center space-x-6">
+                 {perfume.officialUrl && (
+                  <a
+                    href={perfume.officialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-sm font-medium text-accent hover:underline"
+                  >
+                    Official Website
+                    <ExternalLink className="ml-1 h-4 w-4" />
+                  </a>
+                )}
+                {perfume.fragranticaUrl && (
+                  <a
+                    href={perfume.fragranticaUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-sm font-medium text-accent hover:underline"
+                  >
+                    View on Fragrantica
+                    <ExternalLink className="ml-1 h-4 w-4" />
+                  </a>
+                )}
               </div>
             </div>
           </div>
