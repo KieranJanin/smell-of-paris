@@ -5,7 +5,7 @@ This guide will walk you through setting up a local development environment for 
 ## Prerequisites
 
 *   Node.js (v18 or later)
-*   npm
+*   npm 
 
 ## Installation
 
