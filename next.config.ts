@@ -20,10 +20,10 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     // This is required to allow the Next.js dev server to accept requests from the preview iframe.
-    allowedDevOrigins: [
-      'https://*.cloudworkstations.dev',
-      'https://*.firebase.studio',
-    ],
+    // allowedDevOrigins: [
+    //   'https://*.cloudworkstations.dev',
+    //   'https://*.firebase.studio',
+    // ],
   },
 };
 
