@@ -1,0 +1,7 @@
+What is the name of your Cloud Run service?
+What is the container image URL? (e.g., gcr.io/your-project-id/your-image-name)
+What port does your application listen on? (Default is 8080)
+Do you need to configure any environment variables for the service?
+What are the resource allocation requirements (CPU, memory) for the service?
+What is the desired scaling configuration? (min/max instances, concurrency)
+Do you need to configure any other settings like VPC connector, service account, ingress settings, etc.?

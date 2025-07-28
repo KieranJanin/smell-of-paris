@@ -1,0 +1,5 @@
+What are the trigger events for this workflow? (e.g., push to specific branch, pull request)
+What steps should be included in the CI process? (e.g., build, lint, test)
+What steps should be included in the CD process? (e.g., build container image, push to registry, deploy to Cloud Run)
+Do you need to set up any secrets for the workflow? (e.g., GCP credentials)
+What is the build process for your application? (e.g., Dockerfile, buildpack)
