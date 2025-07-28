@@ -1,5 +1,3 @@
-
-
 'use client';
 
 import { perfumes, Perfume } from '@/lib/data';

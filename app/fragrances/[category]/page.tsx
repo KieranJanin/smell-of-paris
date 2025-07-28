@@ -1,5 +1,3 @@
-
-
 'use client';
 
 import { perfumes, Perfume } from '@/lib/data';
@@ -22,7 +20,7 @@ import { use } from 'react';
 // }
 
 export default function CategoryPage({ params }: { params: { category: string } }) {
-  const categoryName = decodeURIComponent(params.category);
+  const categoryName = decodeURIComponent(use(params).category);
 
   const { categoryPerfumes, perfumesByBrand } = useMemo(() => {
     const filtered = perfumes.filter(

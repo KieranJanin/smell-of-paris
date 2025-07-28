@@ -1,4 +1,3 @@
-
 import { MetadataRoute } from 'next';
 import { perfumes, fragranceCategories, designerBrands, nicheBrands } from '@/lib/data';
 

@@ -1,5 +1,3 @@
-
-
 'use client';
 
 import { perfumes } from '@/lib/data';
@@ -14,7 +12,7 @@ import { ShoppingCart, Heart, ExternalLink } from 'lucide-react';
 import { use } from 'react';
 
 export default function PerfumePage({ params }: { params: { id: string } }) {
-  const perfume = perfumes.find((p) => p.id.toString() === params.id);
+  const perfume = perfumes.find((p) => p.id.toString() === use(params).id);
 
   if (!perfume) {
     notFound();
