@@ -25,6 +25,9 @@ export default function Footer() {
               <Link href="/brands" className="hover:text-accent">
                 Brands
               </Link>
+              <Link href="/fragrances" className="hover:text-accent">
+                Fragrances
+              </Link>
               <Link href="#" className="hover:text-accent">
                 Sale
               </Link>
