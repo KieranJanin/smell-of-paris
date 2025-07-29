@@ -36,7 +36,7 @@ export default function Footer() {
               <Link href="/contact" className="hover:text-accent">
                 Contact Us
               </Link>
-              <Link href="#" className="hover:text-accent">
+              <Link href="/shipping-returns" className="hover:text-accent">
                 Shipping & Returns
               </Link>
               <Link href="/faq" className="hover:text-accent">
